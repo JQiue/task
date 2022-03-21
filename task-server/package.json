@@ -1,0 +1,18 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=dev nodemon ./bin/www.js",
+    "start": "cross-env NODE_ENV=production NODE_DEMO_DATABASE=host=jinqiu.wang;user=root;password=@QQ.wjq21;port=3306;database=db_demo_node nodemon ./bin/www.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "mysql2": "^2.3.3"
+  }
+}
