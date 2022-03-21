@@ -1,0 +1,27 @@
+.wrapper {
+  height: 100%;
+  display: flex;
+}
+
+.wrapper .card h3 {
+  text-align: center;
+}
+
+.wrapper .card {
+  flex: 1;
+  border: 1px solid #000;
+  padding: 1.5rem;
+}
+
+.draggable {
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid #000;
+}
+
+.input-component {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
