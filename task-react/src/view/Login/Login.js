@@ -2,27 +2,17 @@ import { useNavigate } from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
 import './login.css'
 
-function ImgComponet(props) {
-  if(props.type == '晴') {
-    return <img src='./asserts/qing.png'/>
-  } else if (props.type == '阵雨') {
-    return <img src='./asserts/yu.png'/>
-  } else if (props.type == '多云') {
-    return <img src='./asserts/yin.png'/>
-  } else {
-    return <img src=''/>
-  }
-}
+import Input from '../../components/Input/Input';
 
 export default function Login(props) {
   const [weathers, setWeathers] = useState([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
     global.http.get('/api/weather/get', result => {
       setWeathers(result.data.data);
     });
   }, []);
-
-  const navigate = useNavigate();
 
   return (
     <div className='login'>
@@ -32,7 +22,7 @@ export default function Login(props) {
             return (<div className='weather-item' key={index}>
             <span className="city">{value.cityinfo.name}</span>
             <span className='temp'>{value.weather.temperature}°</span>
-            <ImgComponet type={value.weather.type} />
+            <Input type={value.weather.type} />
           </div>)
           })
         }
