@@ -1,0 +1,101 @@
+.wrapper {
+  height: 100%;
+  display: flex;
+}
+
+.wrapper .card h3 {
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+
+.wrapper .card {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.draggable {
+  position: relative;
+  padding: 1rem;
+  background-color: pink;
+  margin: 10px;
+  border-radius: 5px;
+  transform: all, 0.4s;
+}
+
+.draggable:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+}
+
+.draggable-input {
+  background-color: pink;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.dragging {
+  opacity: .5;
+}
+
+.dragover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+
+.input-component {
+  width: 100%;
+  height: 3rem;
+  padding: 0;
+  outline: none;
+  border-width: 0;
+  text-indent: 2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0px;
+  height: 0px;
+  transform: translate(50%, -50%);
+  z-index: 99;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  background-color: #f78989;
+  color: white;
+  font-size: 10px;
+  opacity: 0;
+  transition: all 0.1s;
+  box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+}
+
+.add-btn {
+  margin-top: 20px;
+  padding: 0;
+  outline: none;
+  border-width: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: #77b5fe;
+  color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+}
+
+.add-btn:active {
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+
+.draggable:hover .delete-btn {
+  width: 25px;
+  height: 25px;
+  font-size: 17px;
+  opacity: 1;
+}
+
+.input-component:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+}

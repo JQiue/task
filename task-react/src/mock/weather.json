@@ -1,0 +1,41 @@
+{
+  "time": "",
+  "data": [
+    {
+      "cityinfo": {
+        "name": "北京市"
+      },
+      "weather": {
+        "temperature": "11",
+        "type": "阵雨"
+      }
+    },
+    {
+      "cityinfo": {
+        "name": "上海市"
+      },
+      "weather": {
+        "temperature": "7",
+        "type": "多云"
+      }
+    },
+    {
+      "cityinfo": {
+        "name": "广州"
+      },
+      "weather": {
+        "temperature": "26",
+        "type": "晴"
+      }
+    },
+    {
+      "cityinfo": {
+        "name": "深圳"
+      },
+      "weather": {
+        "temperature": "26",
+        "type": "多云"
+      }
+    }
+  ]
+}
