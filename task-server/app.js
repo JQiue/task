@@ -27,13 +27,17 @@ const getPostData = (req) => {
 
 module.exports = (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  const { pathname, query } = url.parse(req.url, true);
+  const { pathname } = url.parse(req.url);
   req.pathname = pathname;
-  req.query = query;
-  console.log(pathname, query);
-  if (pathname == '/' || pathname == '/task' || pathname.includes('static')) {
+  if (pathname == '/' || pathname == '/favicon.ico' || pathname == '/task' || pathname.includes('static') || pathname.includes('asserts')) {
     let filepath = path.resolve(__dirname, `../task-react/build/index.html`);
+    if (pathname == '/favicon.ico') {
+      filepath = path.resolve(__dirname, `../task-react/build${pathname}`);
+    }
     if (pathname.includes('static')) {
+      filepath = path.resolve(__dirname, `../task-react/build${pathname}`);
+    }
+    if (pathname.includes('asserts')) {
       filepath = path.resolve(__dirname, `../task-react/build${pathname}`);
     }
     fs.readFile(filepath, (err, data) => {

@@ -20,7 +20,6 @@ export default function Login(props) {
     global.http.get('/api/weather/get', result => {
       setWeathers(result.data.data);
     });
-    console.log(weathers);
   }, []);
 
   const navigate = useNavigate();
