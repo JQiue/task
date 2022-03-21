@@ -3,6 +3,7 @@ const url = require('url');
 const path = require('path')
 
 const taskRouter = require('./src/router/task');
+const weatherRouter = require('./src/router/weather');
 
 const getPostData = (req) => {
   return new Promise((resolve, reject) => {
@@ -43,12 +44,17 @@ module.exports = (req, res) => {
   getPostData(req).then(data => {
     res.setHeader('Content-Type', 'application/json');
     req.body = data;
-    console.log(data);
     const taskResult = taskRouter(req, res);
+    const weatherResult = weatherRouter(req, res);
+
     if (taskResult) {
       taskResult.then(data => {
         res.end(JSON.stringify(data));
-      })
+      });
+    } else if (weatherResult) {
+      weatherResult.then(data => {
+        res.end(JSON.stringify(data));
+      });
     } else {
       res.end('404');
     }
