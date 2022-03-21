@@ -26,21 +26,22 @@ const getPostData = (req) => {
 
 module.exports = (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Content-Type', 'application/json');
   const { pathname, query } = url.parse(req.url, true);
   req.pathname = pathname;
   req.query = query;
   console.log(pathname, query);
   if (pathname == '/' || pathname == '/task' || pathname.includes('static')) {
-    let filepath = path.resolve(__dirname, `../demo-react/build/index.html`);
+    let filepath = path.resolve(__dirname, `../task-react/build/index.html`);
     if (pathname.includes('static')) {
-      filepath = path.resolve(__dirname, `../demo-react/build${pathname}`);
+      filepath = path.resolve(__dirname, `../task-react/build${pathname}`);
     }
     fs.readFile(filepath, (err, data) => {
       res.end(data);
     });
+    return;
   }
   getPostData(req).then(data => {
+    res.setHeader('Content-Type', 'application/json');
     req.body = data;
     console.log(data);
     const taskResult = taskRouter(req, res);
